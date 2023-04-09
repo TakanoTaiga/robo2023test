@@ -25,10 +25,10 @@ class robo2022utils
         const geometry_msgs::msg::Twist::SharedPtr get_msg)
     {
         static std::vector<float> vec(4);
-        vec[0] = -0.707106781 * get_msg->linear.z + 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.y;
-        vec[1] = -0.707106781 * get_msg->linear.z - 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.y;
-        vec[2] =  0.707106781 * get_msg->linear.z - 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.y;
-        vec[3] =  0.707106781 * get_msg->linear.z + 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.y;
+        vec[0] = -0.707106781 * get_msg->linear.y + 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.z;
+        vec[1] = -0.707106781 * get_msg->linear.y - 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.z;
+        vec[2] =  0.707106781 * get_msg->linear.y - 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.z;
+        vec[3] =  0.707106781 * get_msg->linear.y + 0.707106781 * get_msg->linear.x + ROBO2022UTILS_L * get_msg->angular.z;
 
         vec[0] *= (float)(VEL2MOTOR_SCALER);
         vec[1] *= (float)(VEL2MOTOR_SCALER);

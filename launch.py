@@ -20,16 +20,6 @@ def generate_launch_description():
                 ('/smart_controller_gateway/output/gamepad' , '/sc_client/gamepad'),
             ],
         ),
-        # Joysic to vector
-        Node(
-            package='team_support',
-            executable='joy2vel4a',
-            remappings=[
-                ('/joy' , '/sc_client/gamepad'),
-                ('/SmartUI' , '/sc_client/SmartUI')
-            ],
-            on_exit=actions.Shutdown(),
-        ),
         
         # Smoothers
         Node(
@@ -48,20 +38,11 @@ def generate_launch_description():
             package='robo2022',
             executable='robo2022',
             remappings=[
-                ('/robo2022/cmd_vel/updown' , '/smoothed_cmd_vel/main/updown'),
                 ('/robo2022/cmd_vel/rover' , '/smoothed_cmd_vel/main/rover')
             ]
             
         ),
-        Node(
-            package='team_support',
-            executable='a_team',
-            remappings=[
-                ('/joy' , '/sc_client/joy'),
-                ('/SmartUI' , '/sc_client/SmartUI'),
-            ],
-        ),
-        
+
         # Hardware connector
         Node(
             package='robo2022',
